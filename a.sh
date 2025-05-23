@@ -3,11 +3,9 @@ export LANG=en_US.UTF-8
 export nix=${nix:-''}
 [ -z "$nix" ] && sys='主流VPS-' || sys='容器NIX-'
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" 
-echo "甬哥Github项目  ：github.com/yonggekkk"
-echo "甬哥Blogger博客 ：ygkkk.blogspot.com"
-echo "甬哥YouTube频道 ：www.youtube.com/@ygkkk"
+
 echo "${sys}ArgoSB真一键无交互脚本"
-echo "当前版本：25.5.10 测试beta7版"
+
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 export UUID=${uuid:-''}
 export port_vm_ws=${vmpt:-''}
@@ -57,7 +55,7 @@ rm -rf /etc/s-box-ag /usr/bin/agsb
 }
 up(){
 rm -rf /usr/bin/agsb
-curl -L -o /usr/bin/agsb -# --retry 2 --insecure https://raw.githubusercontent.com/yonggekkk/argosb/main/argosb.sh
+curl -L -o /usr/bin/agsb -# --retry 2 --insecure https://raw.githubusercontent.com/aa336818/argosb/main/a.sh
 chmod +x /usr/bin/agsb
 }
 if [[ "$1" == "del" ]]; then
@@ -75,7 +73,8 @@ argoname=$(cat /etc/s-box-ag/sbargoym.log 2>/dev/null)
 if [ -z $argoname ]; then
 argodomain=$(cat /etc/s-box-ag/argo.log 2>/dev/null | grep -a trycloudflare.com | awk 'NR==2{print}' | awk -F// '{print $2}' | awk '{print $1}')
 if [ -z $argodomain ]; then
-echo "当前argo临时域名未生成，请先将脚本卸载(agsb del)，再重新安装ArgoSB脚本" 
+echo "当前argo临时域名未生成，请先将脚本卸载(agsb del)，再重新安装ArgoSB脚本"
+echo "https://raw.githubusercontent.com/aa336818/argosb/main/a.sh"
 else
 echo "当前argo最新临时域名：$argodomain"
 fi
